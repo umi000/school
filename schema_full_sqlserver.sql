@@ -641,3 +641,80 @@ PRINT '========================================';
 PRINT 'GBHSS Schema complete — 26 tables OK';
 PRINT '========================================';
 GO
+
+
+-- Created by GitHub Copilot in SSMS - review carefully before executing
+-- Add users with roles for GBHSS system
+-- ⚠️  WARNING: Passwords shown here are placeholders. 
+--     Use a proper hashing algorithm (bcrypt, PBKDF2, ARGON2) in production.
+
+USE [GBHSS];
+GO
+
+-- Get the school ID and role IDs
+DECLARE @SchoolId UNIQUEIDENTIFIER = '00000000-0000-0000-0000-000000000001';
+DECLARE @RoleIdSuperAdmin UNIQUEIDENTIFIER = (SELECT id FROM dbo.roles WHERE name='super_admin');
+DECLARE @RoleIdAdmin UNIQUEIDENTIFIER = (SELECT id FROM dbo.roles WHERE name='admin');
+DECLARE @RoleIdRegistrar UNIQUEIDENTIFIER = (SELECT id FROM dbo.roles WHERE name='registrar');
+DECLARE @RoleIdTeacher UNIQUEIDENTIFIER = (SELECT id FROM dbo.roles WHERE name='teacher');
+
+-- 1. Insert Super Admin User
+DECLARE @SuperAdminUserId UNIQUEIDENTIFIER = NEWID();
+IF NOT EXISTS (SELECT 1 FROM dbo.users WHERE email = 'admin@gbhss.edu.pk')
+BEGIN
+    INSERT INTO dbo.users (id, school_id, email, password_hash, is_active)
+    VALUES (@SuperAdminUserId, @SchoolId, 'admin@gbhss.edu.pk', 
+            'Admin@123', 1);
+    
+    INSERT INTO dbo.user_roles (user_id, role_id)
+    VALUES (@SuperAdminUserId, @RoleIdSuperAdmin);
+    
+    PRINT 'Super Admin user created: admin@gbhss.edu.pk';
+END
+ELSE
+    PRINT 'Super Admin user already exists.';
+
+-- 2. Insert Registrar User
+DECLARE @RegistrarUserId UNIQUEIDENTIFIER = NEWID();
+IF NOT EXISTS (SELECT 1 FROM dbo.users WHERE email = 'registrar@gbhss.edu.pk')
+BEGIN
+    INSERT INTO dbo.users (id, school_id, email, password_hash, is_active)
+    VALUES (@RegistrarUserId, @SchoolId, 'registrar@gbhss.edu.pk', 
+            'Registrar@123', 1);
+    
+    INSERT INTO dbo.user_roles (user_id, role_id)
+    VALUES (@RegistrarUserId, @RoleIdRegistrar);
+    
+    PRINT 'Registrar user created: registrar@gbhss.edu.pk';
+END
+ELSE
+    PRINT 'Registrar user already exists.';
+
+-- 3. Insert Teacher User
+DECLARE @TeacherUserId UNIQUEIDENTIFIER = NEWID();
+IF NOT EXISTS (SELECT 1 FROM dbo.users WHERE email = 'teacher1@gbhss.edu.pk')
+BEGIN
+    INSERT INTO dbo.users (id, school_id, email, password_hash, is_active)
+    VALUES (@TeacherUserId, @SchoolId, 'teacher1@gbhss.edu.pk', 
+            'Teacher@123', 1);
+    
+    INSERT INTO dbo.user_roles (user_id, role_id)
+    VALUES (@TeacherUserId, @RoleIdTeacher);
+    
+    PRINT 'Teacher user created: teacher1@gbhss.edu.pk';
+END
+ELSE
+    PRINT 'Teacher user already exists.';
+
+-- Verify inserted users
+SELECT u.email, STRING_AGG(r.name, ', ') AS Roles
+FROM dbo.users u
+LEFT JOIN dbo.user_roles ur ON u.id = ur.user_id
+LEFT JOIN dbo.roles r ON ur.role_id = r.id
+WHERE u.email IN ('admin@gbhss.edu.pk', 'registrar@gbhss.edu.pk', 'teacher1@gbhss.edu.pk')
+GROUP BY u.email
+ORDER BY u.email;
+GO
+select * from user_roles
+
+delete from user

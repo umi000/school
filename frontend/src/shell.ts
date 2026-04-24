@@ -84,6 +84,7 @@ function renderShell(title: string, content: string): string {
   <div id="sidebarOverlay" class="sidebar-overlay"></div>
   <nav class="sidebar" id="sidebar">
     <div class="sidebar__inner">${navHtml}</div>
+    <div class="sidebar__credit">Designed by<br/><strong>Umair Aslam Rajput</strong></div>
   </nav>` : ""}
 
   <div class="${token ? "main-with-sidebar" : "main-no-sidebar"}">

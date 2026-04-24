@@ -8,7 +8,7 @@ export function loginPage() {
   mount("Government Boys Higher Secondary School — Sign In", `
     <div class="auth-wrap">
       <div class="auth-card">
-        <img src="/logo.svg" width="80" height="80" alt="" class="auth-logo"/>
+        <img src="/sindh-logo.png" width="72" height="72" alt="Govt of Sindh" class="auth-logo" style="border-radius:50%"/>
         <h2 class="auth-title">Sign in</h2>
         <p class="auth-sub">Government Boys Higher Secondary School, Bhiria City</p>
         <form id="loginForm" class="auth-form">
