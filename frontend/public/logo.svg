@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Government of Sindh – Education Department">
+  <defs>
+    <linearGradient id="outerG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="100%" style="stop-color:#14532d"/>
+    </linearGradient>
+    <linearGradient id="innerG" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534"/>
+      <stop offset="100%" style="stop-color:#15803d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer ring -->
+  <circle cx="60" cy="60" r="58" fill="url(#outerG)"/>
+  <!-- Gold border ring -->
+  <circle cx="60" cy="60" r="58" fill="none" stroke="#f9a825" stroke-width="3"/>
+  <!-- Inner circle -->
+  <circle cx="60" cy="60" r="48" fill="url(#innerG)"/>
+  <circle cx="60" cy="60" r="46" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+
+  <!-- Pakistan Crescent (white) -->
+  <path fill="#ffffff" d="
+    M60 26
+    a28 28 0 1 0 0 56
+    a24 24 0 1 1 0-56
+    z
+  "/>
+
+  <!-- Star (5-pointed, white) -->
+  <polygon fill="#ffffff" points="
+    72,45
+    73.9,51.6
+    80.5,51.6
+    75.3,55.4
+    77.2,62
+    72,58.2
+    66.8,62
+    68.7,55.4
+    63.5,51.6
+    70.1,51.6
+  "/>
+
+  <!-- Bottom text band -->
+  <path fill="rgba(0,0,0,0.3)" d="M17 85 Q60 120 103 85 L110 96 Q60 130 10 96 Z"/>
+
+  <!-- "Govt. of Sindh" -->
+  <text x="60" y="98" text-anchor="middle" fill="#f9a825"
+        font-family="'Segoe UI', Arial, sans-serif" font-size="8.5" font-weight="700"
+        letter-spacing="0.5">GOVT. OF SINDH</text>
+  <!-- "Education Dept." -->
+  <text x="60" y="109" text-anchor="middle" fill="#bbf7d0"
+        font-family="'Segoe UI', Arial, sans-serif" font-size="6.5" font-weight="500"
+        letter-spacing="0.3">EDUCATION DEPT.</text>
+</svg>

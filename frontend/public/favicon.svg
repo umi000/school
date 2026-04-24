@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Government of Sindh">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="100%" style="stop-color:#14532d"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="32" height="32" rx="7" fill="url(#bg)"/>
+  <!-- Gold ring -->
+  <rect width="32" height="32" rx="7" fill="none" stroke="#f9a825" stroke-width="1.5"/>
+  <!-- Inner circle -->
+  <circle cx="16" cy="14" r="10" fill="rgba(0,0,0,0.2)"/>
+  <!-- Pakistan Crescent (white) -->
+  <path fill="#ffffff" d="
+    M16 6
+    a8 8 0 1 0 0 16
+    a6.5 6.5 0 1 1 0-16
+    z
+  "/>
+  <!-- Star (5-pointed white) -->
+  <polygon fill="#ffffff" points="
+    20,9.5
+    20.6,11.5
+    22.6,11.5
+    21.0,12.7
+    21.6,14.7
+    20,13.5
+    18.4,14.7
+    19.0,12.7
+    17.4,11.5
+    19.4,11.5
+  "/>
+  <!-- Bottom label -->
+  <text x="16" y="28.5" text-anchor="middle" fill="#f9a825"
+        font-family="Arial, sans-serif" font-size="3.8" font-weight="700"
+        letter-spacing="0.3">SINDH</text>
+</svg>
